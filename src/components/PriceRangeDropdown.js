@@ -1,21 +1,18 @@
 import React, { useState, useEffect, useContext } from "react";
 
-//import icons
+// import icons
 import {
   RiWallet3Line,
   RiArrowDownSLine,
   RiArrowUpSLine,
 } from "react-icons/ri";
-
-//import headless
+// import headless ui components
 import { Menu } from "@headlessui/react";
-
-// import  house context
+// import context
 import { HouseContext } from "./HouseContext";
 
 const PriceRangeDropdown = () => {
   const { price, setPrice } = useContext(HouseContext);
-
   const [isOpen, setIsOpen] = useState(false);
 
   const prices = [
@@ -23,22 +20,22 @@ const PriceRangeDropdown = () => {
       value: "Price range (any)",
     },
     {
-      value: "100000- 130000",
+      value: "100000 - 130000",
     },
     {
-      value: "130000- 160000",
+      value: "130000 - 160000",
     },
     {
-      value: "160000- 190000",
+      value: "160000 - 190000",
     },
     {
-      value: "190000- 220000",
+      value: "190000 - 220000",
     },
     {
-      value: "10000- 30000",
+      value: "20000 - 30000",
     },
     {
-      value: "30000- 40000",
+      value: "30000 - 40000",
     },
   ];
 
@@ -46,7 +43,7 @@ const PriceRangeDropdown = () => {
     <Menu as="div" className="dropdown relative">
       <Menu.Button
         onClick={() => setIsOpen(!isOpen)}
-        className="dropdown-btn w-full text-left"
+        className="dropdown-btn w-full"
       >
         <RiWallet3Line className="dropdown-icon-primary" />
         <div>
@@ -64,10 +61,10 @@ const PriceRangeDropdown = () => {
         {prices.map((price, index) => {
           return (
             <Menu.Item
-              onClick={() => setPrice(price.value)}
-              className="cursor-pointer hover:text-violet-700 translate"
               as="li"
+              onClick={() => setPrice(price.value)}
               key={index}
+              className="cursor-pointer hover:text-violet-700 transition"
             >
               {price.value}
             </Menu.Item>

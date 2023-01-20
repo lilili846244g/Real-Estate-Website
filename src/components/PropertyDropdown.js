@@ -1,19 +1,14 @@
-import React, { useState, useEffect, useContext } from "react";
-
-//import icons
+import React, { useState, useContext } from "react";
+// import icons
 import { RiHome5Line, RiArrowDownSLine, RiArrowUpSLine } from "react-icons/ri";
-
-//import headless
+// import headless ui components
 import { Menu } from "@headlessui/react";
-
-// import  house context
+// import context
 import { HouseContext } from "./HouseContext";
 
 const PropertyDropdown = () => {
   const { property, setProperty, properties } = useContext(HouseContext);
-
   const [isOpen, setIsOpen] = useState(false);
-
   return (
     <Menu as="div" className="dropdown relative">
       <Menu.Button
@@ -25,7 +20,7 @@ const PropertyDropdown = () => {
           <div className="text-[15px] font-medium leading-tight">
             {property}
           </div>
-          <div className="text-[13px]">Select your place</div>
+          <div className="text-[13px]">Choose property type</div>
         </div>
         {isOpen ? (
           <RiArrowUpSLine className="dropdown-icon-secondary" />
@@ -38,10 +33,10 @@ const PropertyDropdown = () => {
         {properties.map((property, index) => {
           return (
             <Menu.Item
-              onClick={() => setProperty(property)}
-              className="cursor-pointer hover:text-violet-700 translate"
               as="li"
+              onClick={() => setProperty(property)}
               key={index}
+              className="cursor-pointer hover:text-violet-700 transition"
             >
               {property}
             </Menu.Item>

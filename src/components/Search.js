@@ -1,15 +1,15 @@
 import React, { useContext } from "react";
 
-//import component
+// import components
+import CountryDropdown from "./CountryDropdown";
+import PropertyDropdown from "./PropertyDropdown";
+import PriceRangeDropdown from "./PriceRangeDropdown";
 
-import CountryDropdown from "../components/CountryDropdown";
-import PropertyDropdown from "../components/PropertyDropdown";
-import PriceRangeDropdown from "../components/PriceRangeDropdown";
-
-//import icons
-import { RiSearch2Line } from "react-icons/ri";
-//import context
+// import context
 import { HouseContext } from "./HouseContext";
+
+// import icon
+import { RiSearch2Line } from "react-icons/ri";
 
 const Search = () => {
   const { handleClick } = useContext(HouseContext);
@@ -19,8 +19,10 @@ const Search = () => {
       <PropertyDropdown />
       <PriceRangeDropdown />
       <button
-        onClick={() => handleClick()}
-        className="bg-violet-700 hover:bg-violet-800 translate w-full lg:max-w-[162px] h-16 rounded-lg flex justify-center items-center text-white text-lg"
+        onClick={() => {
+          handleClick();
+        }}
+        className="bg-violet-700 hover:bg-violet-800 transition w-full lg:max-w-[162px] h-16 rounded-lg flex justify-center items-center text-white text-lg"
       >
         <RiSearch2Line />
       </button>
